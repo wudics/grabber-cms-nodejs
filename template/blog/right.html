@@ -1,0 +1,42 @@
+<div class="listArt">
+        <dl>
+          <dt>
+            <h3 class="fl">{dede:field name='typename'/}排行榜</h3>
+            <span class="fr">{dede:type}<a href="[field:typelink /]">更多&gt;&gt;</a>{/dede:type}</span></dt>
+          <dd>
+            <ul>
+              {dede:arclist typeid='' row='10' titlelen='60' orderby='click'}
+			  <li><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></li>
+			  {/dede:arclist}
+            </ul>
+          </dd>
+        </dl>
+        <dl>
+          <dt>
+            {dede:type typeid='5'}
+			<h3 class="fl">[field:typename /]排行榜</h3>
+            <span class="fr"><a href="[field:typelink /]">更多&gt;&gt;</a></span></dt>
+			{/dede:type}
+          <dd>
+            <ul>
+              {dede:arclist typeid='5' row='10' titlelen='60' orderby='click'}
+			  <li><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></li>
+			  {/dede:arclist}
+            </ul>
+          </dd>
+        </dl>
+        <dl>
+          <dt>
+            {dede:type typeid='7'}
+			<h3 class="fl">[field:typename /]排行榜</h3>
+            <span class="fr"><a href="[field:typelink /]">更多&gt;&gt;</a></span></dt>
+			{/dede:type}
+          <dd>
+            <ul>
+              {dede:arclist typeid='7' row='10' titlelen='60' orderby='click'}
+			  <li><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></li>
+			  {/dede:arclist}
+            </ul>
+          </dd>
+        </dl>
+      </div>

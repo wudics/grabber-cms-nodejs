@@ -1,0 +1,36 @@
+<div class="topbar">
+  <div class="wraps auto fix">
+    <p class="fl">公告：你好，菜鸟！欢迎来到菜鸟集中营</p>
+    <div class="topbar-menu"></div>
+  </div>
+</div>
+<!-- 头部 -->
+<div class="headers">
+  <div class="wraps auto fix">
+    <div class="logo"><a href="/" class="logo-link">
+      <h1>菜鸟集中营</h1>
+      <h2>www.hellonoob.net</h2>
+      </a></div>
+    <div class="c-search">
+      <div class="search-wrapper">
+        <div class="fix">
+          <form name="searchform" method="post" id="searchform" class="searchform" action="/plus/search.php">
+            <input type="hidden" name="classid" value="1">
+            <input class="search-input" type="text" name="q" autocomplete="off" placeholder="请输入搜索关键词" id="searchV">
+            <input type="submit" value="搜 索" class="search-btn"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 导航 -->
+<div class="navbar">
+  <div class="wraps auto fix">
+    <a href="/" class='nav-item <%= catid == 0 ? "current" : ""%>'>网站首页</a>
+    <% cat.forEach(function(item) { %>
+      <a href="/cat/<%= item.id %>" class='nav-item <%= catid == item.id ? "current" : ""%>'><%= item.catname %></a>
+    <% }); %>
+  </div>
+</div>
+<div style="clear:both;"></div>
