@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>{dede:field.seotitle/}_{dede:global.cfg_webname/}</title>
-<meta name="keywords" content="{dede:field name='keywords'/}" />
-<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<title><%= title %></title>
+<meta name="keywords" content="<%= keywords %>" />
+<meta name="description" content="<%= description %>" />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link href="<%= cfg.dir.static_blog %>/css/style.css" rel="stylesheet" />
 <link href="<%= cfg.dir.static_blog %>/css/article.css" rel="stylesheet" />
@@ -20,7 +20,7 @@
       <div class="location"><%= catid == 0 ? "网站首页" : cat[catid - 1].catname %></div>
       <div class="artItemList">
         
-        <div class="artItem s2282">
+        <!-- <div class="artItem s2282">
           <div class="itemTit">
             <h4><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></h4>
             <div class="pcInfo">
@@ -32,17 +32,37 @@
           <div class="itemPic">
             <div class="titPic"> <a href="[field:arcurl/]" title="[field:title/]"><img src="[field:litpic/]" alt="[field:title/]"></a> </div>
           </div>
+        </div> -->
+
+
+        <% for (let i = 0; i < archives.length; i++) { %>
+        <div class="artItem s2282">
+          <div class="itemTit">
+            <h4><a href="#<%= archives[i].id %>" title="<%= archives[i].title %>"><%= archives[i].title %></a></h4>
+            <div class="pcInfo">
+              <p class="item_intro"><%= archives[i].content %></p>
+              <span class="item_date"><%= archives[i].pubdate %></span> <span class="item_tag"><%= archives[i].click %></span>
+              <div class="down"><a href="#<%= archives[i].id %>" title="<%= archives[i].title %>">点击查看</a></div>
+            </div>
+          </div>
+          <div class="itemPic">
+            <div class="titPic"> <a href="#<%= archives[i].id %>" title="<%= archives[i].title %>"><img src="<%= archives[i].picurl %>" alt="<%= archives[i].title %>"></a> </div>
+          </div>
         </div>
+        <% } %>
+
         
         <div class="clear"></div>
-        <div class="pages">
+        <!-- <div class="pages">
           <ul>
             {dede:pagelist listitem="index,end,pre,next,pageno" listsize="5"/}
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
+
     <div class="side_r">
+      
       <div class="listNav" style="display: none;">
         <dl>
           <dt> <strong class="fl">{dede:field name='typeid' function="GetTopTypename(@me)"/}</strong> </dt>
@@ -53,8 +73,11 @@
           </dd>
         </dl>
       </div>
-      <%- include('right.html') %>
+
+      <%- include('right_list_article.html') %>
+
     </div>
+
   </div>
 </div>
 <%- include('footer.html') %>

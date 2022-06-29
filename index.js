@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'static')));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/upload', express.static(path.join(__dirname, 'upload')));
 
 app.set('views', 'template');       // 设置视图目录
 app.set('view engine', 'html');     // 设置视图引擎

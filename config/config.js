@@ -18,9 +18,9 @@ module.exports = {
         {id: 2, typename: "software"},
     ],
     categories: [
-        {id: 1, catname: "IT资讯", parentid: 0},
-        {id: 2, catname: "编程开发", parentid: 0},
-        {id: 3, catname: "绿色软件", parentid: 0},
+        {id: 1, catname: "IT资讯", parentid: 0, keywords: "", description: ""},
+        {id: 2, catname: "编程开发", parentid: 0, keywords: "", description: ""},
+        {id: 3, catname: "绿色软件", parentid: 0, keywords: "", description: ""},
     ],
 }
 

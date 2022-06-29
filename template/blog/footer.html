@@ -11,10 +11,11 @@
   <div class="footers auto">
     <div class="box">
       <p class="ft_nav"> <a href="/">网站首页</a> 
-        {dede:channel type='top' row='9'}
-		| <a href="[field:typelink/]" title="[field:typename/]">[field:typename/]</a> 
-		{/dede:channel}  </p>
-      <p>{dede:global.cfg_powerby/} <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow">{dede:global.cfg_beian/}</a> <a href="/sitemap.xml" target="_blank">XML地图</a> </p>
+        <% cat.forEach(function(item) { %>
+        <a href="/cat/<%= item.id %>" title="<%= item.catname %>"><%= item.catname %></a> 
+        <% }); %>
+      </p>
+      <p>Copyright By HELLONOOB 2022 <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow"> hellonoob.net</a> <a href="/sitemap.xml" target="_blank">XML地图</a> </p>
     </div>
     <div class="box1">
       <p>本站发布的系统与软件仅为个人学习测试使用，请在下载后24小时内删除，不得用于任何商业用途，否则后果自负，请支持购买微软正版软件！</p>

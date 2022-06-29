@@ -1,0 +1,40 @@
+<div class="listArt">
+  <dl>
+    <dt>
+      <h3 class="fl">IT资讯</h3>
+      <span class="fr"><a href="/cat/1">更多&gt;&gt;</a></span></dt>
+    <dd>
+      <ul>
+        <% for (let i = 0; i < archives_left_1.length; i++) { %>
+          <li><a href="#<%= archives_left_1[i].id %>" title="<%= archives_left_1[i].title %>"><%= archives_left_1[i].title %></a></li>
+        <% } %>
+      </ul>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt>
+      <h3 class="fl">编程开发</h3>
+      <span class="fr"><a href="/cat/2">更多&gt;&gt;</a></span></dt>
+    <dd>
+      <ul>
+        <% for (let i = 0; i < archives_left_2.length; i++) { %>
+          <li><a href="#<%= archives_left_2[i].id %>" title="<%= archives_left_2[i].title %>"><%= archives_left_2[i].title %></a></li>
+        <% } %>
+      </ul>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt>
+      <h3 class="fl">绿色软件</h3>
+      <span class="fr"><a href="/cat/3">更多&gt;&gt;</a></span></dt>
+    <dd>
+      <ul>
+        <% for (let i = 0; i < archives_left_3.length; i++) { %>
+          <li><a href="#<%= archives_left_3[i].id %>" title="<%= archives_left_3[i].title %>"><%= archives_left_3[i].title %></a></li>
+        <% } %>
+      </ul>
+    </dd>
+  </dl>
+</div>
