@@ -38,15 +38,15 @@
         <% for (let i = 0; i < archives.length; i++) { %>
         <div class="artItem s2282">
           <div class="itemTit">
-            <h4><a href="#<%= archives[i].id %>" title="<%= archives[i].title %>"><%= archives[i].title %></a></h4>
+            <h4><a href="/article/<%= archives[i].id %>" title="<%= archives[i].title %>"><%= archives[i].title %></a></h4>
             <div class="pcInfo">
               <p class="item_intro"><%= archives[i].content %></p>
               <span class="item_date"><%= archives[i].pubdate %></span> <span class="item_tag"><%= archives[i].click %></span>
-              <div class="down"><a href="#<%= archives[i].id %>" title="<%= archives[i].title %>">点击查看</a></div>
+              <div class="down"><a href="/article/<%= archives[i].id %>" title="<%= archives[i].title %>">点击查看</a></div>
             </div>
           </div>
           <div class="itemPic">
-            <div class="titPic"> <a href="#<%= archives[i].id %>" title="<%= archives[i].title %>"><img src="<%= archives[i].picurl %>" alt="<%= archives[i].title %>"></a> </div>
+            <div class="titPic"> <a href="/article/<%= archives[i].id %>" title="<%= archives[i].title %>"><img src="<%= archives[i].picurl %>" alt="<%= archives[i].title %>"></a> </div>
           </div>
         </div>
         <% } %>

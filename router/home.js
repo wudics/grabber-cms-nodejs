@@ -53,6 +53,8 @@ router.get('/', async (req, res, next) => {
     });
 });
 
+
+
 router.get('/cat/:catid', async (req, res, next) => {
 
     let rows = await getArchives(20, req.params.catid);
@@ -114,6 +116,47 @@ router.get('/cat/:catid', async (req, res, next) => {
         archives_left_3: rows_left_3,
     });
 });
+
+
+router.get('/article/:artid', async (req, res, next) => {
+
+    let art = await getArchiveById(req.params.artid);
+    if (!art) return;
+
+    let typeid = art.type;
+    let catid = art.cat;
+    let pubdate = dateFormat("YYYY-mm-dd HH:MM", new Date(art.pubdate));
+
+    let rows_left_1 = await getRandArchives(10, 1);
+    for (let k in rows_left_1) {
+        rows_left_1[k].title = rows_left_1[k].title.substring(0, 60);
+    }
+
+    let rows_left_2 = await getRandArchives(10, 2);
+    for (let k in rows_left_2) {
+        rows_left_2[k].title = rows_left_2[k].title.substring(0, 60);
+    }
+
+    let rows_left_3 = await getRandArchives(10, 3);
+    for (let k in rows_left_3) {
+        rows_left_3[k].title = rows_left_3[k].title.substring(0, 60);
+    }
+
+    res.render("blog/article_article.html", {
+        cat: cfg.categories,        // 导航分类列表
+        catid: catid,               // 当前导航选中状态
+        title: art.title + "_菜鸟集中营",
+        keywords: art.seokey,
+        description: art.seodesc,
+        pubdate: pubdate,
+        views: Math.round(Math.random() * 10000),
+        art: art,
+        archives_left_1: rows_left_1,
+        archives_left_2: rows_left_2,
+        archives_left_3: rows_left_3,
+    });
+});
+
 
 module.exports = (poolofmysql) => {
     pool = poolofmysql;
@@ -190,6 +233,40 @@ function getRandArchives(size, cat = 0) {
     });
 }
 
+/*
+通过id获取文档
+*/
+function getArchiveById(id) {
+    return new Promise((resolve, reject) => {
+
+        pool.getConnection((err, conn) => {
+
+            if (err) {
+                resolve(null);
+                return;
+            }
+            
+            let sql = "select * from `archives` where `id`=?";
+            let params = [id]
+            conn.query(sql, params, (err, rows) => {
+                pool.releaseConnection(conn);
+                if (err) {
+                    resolve(null);
+                    return;
+                }
+
+                if (rows.length > 0) {
+                    resolve(rows[0]);
+                } else {
+                    resolve(null);
+                }
+
+            });
+
+        });
+
+    });
+}
 
 
 /*
